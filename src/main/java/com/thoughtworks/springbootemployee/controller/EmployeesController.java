@@ -1,5 +1,6 @@
 package com.thoughtworks.springbootemployee.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,11 @@ public class EmployeesController {
         employees.add(new Employee(2, "Xiaozhi", 15, MALE));
         employees.add(new Employee(3, "Xiaogang", 16, MALE));
         employees.add(new Employee(4, "Xiaoxia", 15, FEMALE));
+        return employees;
+    }
+
+    @GetMapping
+    public List<Employee> getEmployees() {
         return employees;
     }
 }
