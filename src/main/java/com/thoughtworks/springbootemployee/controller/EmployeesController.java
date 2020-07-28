@@ -43,7 +43,7 @@ public class EmployeesController {
         for (Employee employee : employees) {
             if (employee.getId() == id) {
                 employee.setAge(age);
-                employee.setMale(gender);
+                employee.setGender(gender);
                 employee.setName(name);
                 break;
             }
