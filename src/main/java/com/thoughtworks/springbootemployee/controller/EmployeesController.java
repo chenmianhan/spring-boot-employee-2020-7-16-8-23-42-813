@@ -1,8 +1,6 @@
 package com.thoughtworks.springbootemployee.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,5 +25,13 @@ public class EmployeesController {
     @GetMapping
     public List<Employee> getEmployees() {
         return employees;
+    }
+
+    @PostMapping
+    public void addEmployees(@RequestParam(value = "id") int id,
+                             @RequestParam(value = "name") String name,
+                             @RequestParam(value = "age") int age,
+                             @RequestParam(value = "gender") String gender) {
+        employees.add(new Employee(id, name, age, gender));
     }
 }
