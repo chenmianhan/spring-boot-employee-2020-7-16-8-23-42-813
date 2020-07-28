@@ -50,4 +50,16 @@ public class EmployeesController {
         }
 
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteEmployee(@PathVariable int id) {
+        Employee removedEmployee = null;
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                removedEmployee = employee;
+                break;
+            }
+        }
+        if (removedEmployee != null) employees.remove(removedEmployee);
+    }
 }
