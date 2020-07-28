@@ -34,4 +34,20 @@ public class EmployeesController {
                              @RequestParam(value = "gender") String gender) {
         employees.add(new Employee(id, name, age, gender));
     }
+
+    @PutMapping
+    public void updateEmployees(@RequestParam(value = "id") int id,
+                                @RequestParam(value = "name") String name,
+                                @RequestParam(value = "age") int age,
+                                @RequestParam(value = "gender") String gender) {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                employee.setAge(age);
+                employee.setMale(gender);
+                employee.setName(name);
+                break;
+            }
+        }
+
+    }
 }
